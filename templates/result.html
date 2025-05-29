@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prediction Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f0ff 0%, #f9fbff 100%);
+      color: #2c3e50;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .container {
+      background: #ffffff;
+      max-width: 720px;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+      padding: 3rem 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      /* allow scrolling if content overflows */
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 2.75rem;
+      margin-bottom: 1.5rem;
+      color: #1a4051;
+      text-align: center;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    h2 {
+      font-weight: 600;
+      color: #3a72b0;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #d4e4fb;
+      padding-bottom: 0.35rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4a5a6a;
+      margin-bottom: 1rem;
+    }
+    ul {
+      margin: 0;
+      padding-left: 1.3rem;
+      list-style: disc;
+      color: #4a5a6a;
+      font-size: 1rem;
+      line-height: 1.5;
+      max-height: 10rem;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #3a72b0 #dce7fa;
+    }
+    ul::-webkit-scrollbar {
+      width: 8px;
+    }
+    ul::-webkit-scrollbar-track {
+      background: #dce7fa;
+      border-radius: 4px;
+    }
+    ul::-webkit-scrollbar-thumb {
+      background-color: #3a72b0;
+      border-radius: 4px;
+    }
+    li {
+      margin-bottom: 0.45rem;
+    }
+    a.button-link {
+      display: inline-block;
+      text-align: center;
+      background: #3a72b0;
+      color: #ffffff;
+      padding: 0.85rem 2rem;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 2.5rem auto 0 auto;
+      box-shadow: 0 6px 14px rgba(58, 114, 176, 0.3);
+      max-width: max-content;
+      transition: background-color 0.3s ease, box-shadow 0.25s ease;
+    }
+    a.button-link:hover,
+    a.button-link:focus {
+      background: #2c5091;
+      box-shadow: 0 8px 20px rgba(44, 81, 145, 0.4);
+      outline: none;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+        align-items: flex-start;
+      }
+      .container {
+        padding: 2rem 1.5rem 1.5rem;
+        max-height: none;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      a.button-link {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+      ul {
+        max-height: 8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <h1>Predicted Disease: {{ disease }}</h1>
+
+    <section aria-label="Disease description">
+      <h2>Description</h2>
+      <p>{{ desc[0] if desc else 'No description available.' }}</p>
+    </section>
+
+    <section aria-label="Precautions">
+      <h2>Precautions</h2>
+      <ul>
+        {% for p in precautions[0] %}
+          <li>{{ p }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section aria-label="Medications">
+      <h2>Medications</h2>
+      <ul>
+        {% for m in meds %}
+          <li>{{ m }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section aria-label="Diets">
+      <h2>Diets</h2>
+      <ul>
+        {% for d in diets %}
+          <li>{{ d }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section aria-label="Workouts">
+      <h2>Workouts</h2>
+      <ul>
+        {% for w in workouts %}
+          <li>{{ w }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <a href="/" class="button-link">Predict another disease</a>
+  </main>
+</body>
+</html>
+

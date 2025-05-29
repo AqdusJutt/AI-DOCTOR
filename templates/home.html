@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Doctor - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f0ff 0%, #f9fbff 100%);
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+    }
+    header {
+      max-width: 720px;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+      color: #1a4051;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #4a5a6a;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      background-color: #3a72b0;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(58,114,176,0.35);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #2c5091;
+      box-shadow: 0 8px 24px rgba(44,81,145,0.45);
+      outline: none;
+    }
+    section.disease-list {
+      max-width: 720px;
+      width: 100%;
+    }
+    section.disease-list h2 {
+      font-weight: 600;
+      font-size: 1.75rem;
+      margin-bottom: 1.2rem;
+      color: #3a72b0;
+      border-bottom: 2px solid #d4e4fb;
+      padding-bottom: 0.3rem;
+    }
+    .disease-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem 1.25rem;
+    }
+    .disease-btn {
+      background: white;
+      border: 2px solid #3a72b0;
+      color: #3a72b0;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(58,114,176,0.15);
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .disease-btn:hover,
+    .disease-btn:focus {
+      background-color: #3a72b0;
+      color: white;
+      box-shadow: 0 6px 22px rgba(58,114,176,0.4);
+      outline: none;
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section.disease-list h2 {
+        font-size: 1.3rem;
+      }
+      .btn-primary {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+      .disease-btn {
+        font-size: 0.9rem;
+        padding: 0.65rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Welcome to AI Doctor</h1>
+    <p>Your AI-powered health assistant to diagnose symptoms and recommend treatments with confidence.</p>
+    <a href="/index" class="btn-primary" role="button" aria-label="Go to Predict Disease page">Predict Disease</a>
+  </header>
+
+  <section class="disease-list" aria-label="List of available diseases">
+    <h2>Explore Diseases in Our Dataset</h2>
+    <div class="disease-grid" role="list">
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Flu">Flu</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Cold">Cold</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Covid-19">Covid-19</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Diabetes">Diabetes</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Hypertension">Hypertension</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Migraine">Migraine</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Asthma">Asthma</button>
+      <button class="disease-btn" type="button" role="listitem" aria-label="View information about Allergy">Allergy</button>
+      <!-- Add more diseases as needed -->
+    </div>
+  </section>
+</body>
+</html>
